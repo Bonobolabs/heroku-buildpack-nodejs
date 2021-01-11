@@ -135,7 +135,7 @@ yarn_node_modules() {
   local build_dir=${1:-}
   local production=${YARN_PRODUCTION:-false}
 
-  echo "Installing node modules (yarn.lock)"
+  echo "Installing node modules (yarn.lock) with --ignore-optional"
   cd "$build_dir" || return
   monitor "yarn-install" yarn install --production="$production" --frozen-lockfile --ignore-engines --ignore-optional 2>&1
 }
